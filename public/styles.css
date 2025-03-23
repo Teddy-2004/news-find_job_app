@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+}
+/* Intro animation styles */
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #282c34; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    animation: shrinkOut 3s ease-in-out forwards;
+}
+
+/* Shrinking effect */
+@keyframes shrinkOut {
+    0% {
+        width: 100%;
+        opacity: 1;
+    }
+    50% {
+        width: 10%;
+        opacity: 1;
+    }
+    90% {
+        width: 2%;
+        opacity: 0.8;
+    }
+    100% {
+        width: 0%;
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border: none;
+    background: lightgray;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background 0.3s;
+}
+
+.tab-button.active {
+    background: darkgray;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.job-list, .news-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.job, .news {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}

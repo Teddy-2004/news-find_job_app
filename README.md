@@ -12,8 +12,12 @@ Backend: Node.js with Express
 API:
 
 News: NewsAPI
+Rate limiting
+The API is limited to 100 requests per day.
 
 Jobs: Findwork.dev
+Rate limiting
+The API is limited to 60 requests per minute.
 
 Frontend: Static HTML files served via Express
 

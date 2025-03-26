@@ -112,3 +112,29 @@ document.getElementById("search-button").addEventListener("click", () => {
 
 
 
+
+
+/// Handle contact form submission
+document.getElementById("contact-form").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    
+    const formData = new FormData(this); // Collect form data
+    formData.append("access_key", "f4053a9d-5d67-4b6c-a5ea-169a9dc8c0e0"); // API access key for Web3Forms
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        }).then(res => res.json());
+
+        if (response.success) {
+            Swal.fire("Success!", "Message sent successfully", "success"); // Show success alert
+            this.reset();
+        } else {
+            Swal.fire("Error!", "Something went wrong", "error"); // Show error alert
+        }
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        Swal.fire("Error!", "Failed to send message", "error"); // Handle network errors
+    }
+});

@@ -1,7 +1,9 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+
 require("dotenv").config();
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors()); // Enable CORS to allow cross-origin requests
 app.use(express.json()); // Middleware to parse JSON request bodies
 const path = require("path");
+const req = require("express/lib/request");
 
 // Serve static frontend files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
@@ -40,7 +43,7 @@ app.get("/api/news", async (req, res) => {
 
         // Filter out articles that don't have content
         const filteredNews = response.data.articles.filter(article => article.content);
-        
+
         // Send filtered articles to the frontend
         res.json({ articles: filteredNews });
     } catch (error) {
@@ -73,7 +76,7 @@ app.get("/api/jobs", async (req, res) => {
         res.json(response.data);
     } catch (error) {
         console.error("❌ Job API Error:", error.response?.status, error.message);
-        
+
         // Handle 404 Not Found error gracefully
         if (error.response?.status === 404) {
             return res.status(200).json({ message: `No job listings found in ${location}. Try searching in a different city.` });

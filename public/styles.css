@@ -12,7 +12,8 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-color: #282c34; /* Dark background */
+    background-color: #282c34;
+    /* Dark background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,19 +28,75 @@ body {
         width: 100%;
         opacity: 1;
     }
+
     50% {
         width: 10%;
         opacity: 1;
     }
+
     90% {
         width: 2%;
         opacity: 0.8;
     }
+
     100% {
         width: 0%;
         opacity: 0;
         display: none;
     }
+}
+
+.navbar {
+    background-color:#f4f7fb;
+    padding: 10px 20px;
+    color: white;
+    margin: 50px;
+}
+
+.navdiv {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    background-color: #575757;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
 }
 
 /* Headings */
@@ -56,7 +113,6 @@ h1 {
     font-weight: 600;
     color: white;
 }
-
 /* Tabs */
 .tabs {
     display: flex;
@@ -92,17 +148,65 @@ h1 {
 
 .tab-content.active {
     display: block;
+    margin: 50px;
 }
 
-.job-list, .news-list {
-    margin-top: 20px;
+.tab-content.active img{
+    max-width: 30%;
+    border-radius: 20px;
+
+}
+
+.tab-content.active a button{
+    margin-left: 200px;
+
+}
+
+.news-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px;
+    gap: 20px;
+}
+.news-detail img{
+    max-width: 50%;
+    border-radius: 20px;
+}
+.news-detail div p{
+    animation: typing 3s steps(20, end) forwards, blink 0.7s infinite;
+}
+
+/* type writer animation */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.job-list,
+.news-list {
+    margin-top: 120px;
     text-align: left;
     max-width: 800px;
     margin: 0 auto;
 }
 
+
+
 /* News & Job Card Styling */
-.job, .news {
+.job,
+.news {
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 15px;
@@ -111,12 +215,14 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.job h3, .news h3 {
+.job h3,
+.news h3 {
     font-size: 1.2rem;
     color: #333;
 }
 
-.job p, .news p {
+.job p,
+.news p {
     font-size: 1rem;
     color: #555;
     margin: 10px 0;
@@ -170,8 +276,13 @@ button:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Error Message Styling */
@@ -183,6 +294,24 @@ button:hover {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    ul.show {
+        display: flex;
+    }
     h1 {
         font-size: 1.5rem;
     }
@@ -191,11 +320,18 @@ button:hover {
         font-size: 2.5rem;
     }
 
-    .job-list, .news-list {
+    .job-list,
+    .news-list {
         width: 90%;
     }
 
     .tabs {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        margin-left: 150px;
+        margin-right: 150px;
+        gap: 15px;
     }
 }

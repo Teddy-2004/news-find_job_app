@@ -7,24 +7,61 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <span class="menu-icon" onclick="toggleMenu()">☰</span>
+                <ul id="menu">
+                  <!-- Navigation Tabs -->
+                    <div class="tabs">
+                        <button class="tab-button active" onclick="showTab('news')">News</button>
+                        <button class="tab-button" onclick="showTab('jobs')">Job Finder</button>
+                        <button>Contact</button>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <div class="intro">
         <h1 class="intro-text">Welcome to TechHire</h1>
-    </div>
-    <h1>
-        Welcome to TechHire Hub, your one-stop platform for staying ahead in the tech world! We bring you the latest tech news, keeping you informed about industry trends, innovations, and breakthroughs. Whether you're a tech enthusiast or a job seeker, our powerful job finder helps you discover opportunities that match your skills and preferences. With advanced filters for location and city, you can easily find the perfect job near you. Stay updated, stay connected, and land your dream tech job with TechHire Hub! 🚀
-    </h1>
-    <h1>News & Job Finder</h1>
-    
-    <!-- Navigation Tabs -->
-    <div class="tabs">
-        <button class="tab-button active" onclick="showTab('news')">News</button>
-        <button class="tab-button" onclick="showTab('jobs')">Job Finder</button>
     </div>
 
     <!-- News Section -->
     <div id="news" class="tab-content active">
-        <button onclick="fetchNews()">Get Latest News</button>
-        <div class="news-list" id="news-results"></div>
+        <div class="news-detail">
+            <div>
+                <h1>Get Latest News</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rem doloribus magnam itaque facere pariatur fuga odit,
+                </p>
+                <button onclick="redirectToNews()">Get Latest News</button>
+            </div>
+            <img src="./images/responsive_big_webp_vN7iAdNQDQvaL-2uFE3oN8BTv2Q3Psawk6bOJIGBTYE.jpg" alt="">
+        </div>
+        
+        <div class="news-detail">
+            <img src="./images/istockphoto-1335295270-612x612.jpg">
+            <div>
+                <h1>
+                    Latest News in Tech industries
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aut rerum, magni distinctio placeat natus et, repellat tempora
+                </p>
+            </div>
+        </div>
+
+        <div class="news-detail">
+            <div>
+                <h1>Get Latest News</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rem doloribus magnam itaque facere pariatur fuga odit,
+            </p>
+            <button onclick="redirectToNews()">View News</button>
+            </div>
+            <img src="./images/image.webp" alt="">
+        </div>
     </div>
 
     <!-- Job Finder Section -->

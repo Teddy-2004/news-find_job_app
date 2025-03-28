@@ -3,13 +3,6 @@ function toggleMenu() {
     menu.classList.toggle("show");
 }
 
-function scrollToSection(sectionId) {
-    var section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-    }
-}
-
 // Tab Navigation Function
 function showTab(tabName) {
     // Hide all tab contents

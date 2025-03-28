@@ -12,15 +12,21 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-color: #282c34;
+    background-color: #f4f7fb;
     /* Dark background */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #fff;
     font-size: 2rem;
     font-weight: bold;
     animation: shrinkOut 3s ease-in-out forwards;
+}
+
+.intro-text {
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
 }
 
 @keyframes shrinkOut {
@@ -68,6 +74,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     display: none;
+    color: #000000;
 }
 
 .close-icon {
@@ -91,7 +98,7 @@ ul li {
 }
 
 ul li:hover {
-    background-color: #575757;
+    background-color: #ffffff;
 }
 
 ul li a {
@@ -108,11 +115,6 @@ h1 {
     text-align: center;
 }
 
-.intro-text {
-    font-size: 3rem;
-    font-weight: 600;
-    color: white;
-}
 /* Tabs */
 .tabs {
     display: flex;
@@ -292,51 +294,6 @@ button:hover {
     margin-top: 20px;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block;
-    }
-
-    ul {
-        display: none;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-    }
-
-    ul.show {
-        display: flex;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .intro-text {
-        font-size: 2.5rem;
-    }
-
-    .job-list,
-    .news-list {
-        width: 90%;
-    }
-
-    .tabs {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0;
-        margin-left: 150px;
-        margin-right: 150px;
-        gap: 15px;
-    }
-}
-
-
 .contact {
     position: relative;
     min-height: 100vh;
@@ -346,7 +303,7 @@ button:hover {
     align-items: center;
     flex-direction: column;
     z-index: 1;
-    background-color: #fff;
+    background-color: #f4f7fb;
     margin-bottom: 30px;
   }
   
@@ -364,7 +321,7 @@ button:hover {
   
   .contact .content p {
     font-weight: 300;
-    color: #fff;
+    color: #000000;
   }
   .container {
     width: 100%;
@@ -440,7 +397,7 @@ button:hover {
   }
   .contactForm h2 {
     font-size: 30px;
-    color: #fff;
+    color: #000000;
     font-weight: 500;
     margin-bottom: 0px;
   }
@@ -460,7 +417,7 @@ button:hover {
     border-bottom: 2px solid #333;
     outline: none;
     resize: none;
-    background-color:#ffffff;
+    background-color:#f4f7fb;
     color: #000000;
   }
   .contactForm .inputBox span {
@@ -497,3 +454,64 @@ button:hover {
     transition: 0.5s;
   
   }
+
+
+  /* Responsive Styles */
+@media (max-width: 1024px) {
+    .tab-content.active img { max-width: 50%; }
+}
+
+@media (max-width: 768px) {
+    .navbar{
+        padding: 0;
+        padding-bottom: 10px;
+    }
+    .menu-icon {
+        display: block;
+    }
+    .menu{
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #5271ff;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .show {
+        display: flex;
+    }
+    .close-icon {
+        display: block;
+        text-align: right;
+        padding: 10px;
+    }
+    .menu-icon { display: block; }
+    ul {
+        display: none;
+        flex-direction: column;
+        background-color: #c0bbbb;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+    .tabs { flex-direction: column; align-items: center; gap: 10px; }
+    .tab-content.active img { max-width: 80%; }
+    .job-list, .news-list { width: 95%; }
+    .news-detail { flex-direction: column; align-items: center; }
+    .news-detail img { max-width: 80%; }
+}
+
+
+@media (max-width: 480px) {
+    .intro-text { font-size: 1.8rem; }
+    .tab-button { font-size: 0.9rem; padding: 8px 15px; }
+    .job-list, .news-list { width: 100%; }
+    .contact { padding: 20px; }
+    .container { flex-direction: column; align-items: center; }
+    .contactInfo, .contactForm { width: 100%; padding: 20px; }
+}

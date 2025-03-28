@@ -13,6 +13,7 @@
                 <span class="menu-icon" onclick="toggleMenu()">☰</span>
                 <ul id="menu">
                   <!-- Navigation Tabs -->
+                  <span class="close-icon" onclick="toggleMenu()">×</span>
                     <div class="tabs">
                         <button class="tab-button active" onclick="showTab('news')">News</button>
                         <button class="tab-button" onclick="showTab('jobs')">Job Finder</button>
@@ -33,9 +34,8 @@
             <div>
                 <h1>Get Latest News</h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rem doloribus magnam itaque facere pariatur fuga odit,
+                    Welcome to TechHire, a platform where you find upto date tech news and remote job in top cities at one place.
                 </p>
-                <button onclick="redirectToNews()">Get Latest News</button>
             </div>
             <img src="./images/responsive_big_webp_vN7iAdNQDQvaL-2uFE3oN8BTv2Q3Psawk6bOJIGBTYE.jpg" alt="">
         </div>
@@ -47,18 +47,19 @@
                     Latest News in Tech industries
                 </h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aut rerum, magni distinctio placeat natus et, repellat tempora
+                    Stay updated with the latest breakthroughs, trends, and innovations shaping the tech industry today.
                 </p>
+                <button onclick="redirectToNews()">Get Latest News</button>
             </div>
         </div>
 
         <div class="news-detail">
             <div>
-                <h1>Get Latest News</h1>
+                <h1>Mouth-Watering Remote Jobs</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rem doloribus magnam itaque facere pariatur fuga odit,
+                Tech-related remote jobs in top global cities like London, New York, and Berlin are easily accessible.
             </p>
-            <button onclick="redirectToNews()">View News</button>
+            <button class="tab-button" onclick="showTab('jobs')">Job Finder</button>
             </div>
             <img src="./images/image.webp" alt="">
         </div>
@@ -66,6 +67,7 @@
 
     <!-- Job Finder Section -->
     <div id="jobs" class="tab-content">
+        <h2 style="color: blue;">Enter job title and city name you want a remote job.</h2>
         <input type="text" id="query" placeholder="Job title">
         <input type="text" id="location" placeholder="Location">
         <button onclick="searchJobs()">Search Jobs</button>

@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="navdiv">
+                <span class="menu-icon" onclick="toggleMenu()">☰</span>
+                <ul id="menu">
+                  <!-- Navigation Tabs -->
+                  <span class="close-icon" onclick="toggleMenu()">×</span>
+                    <div class="tabs">
+                        <a href="index.html">
+                            <button class="tab-button active" onclick="showTab('news')">News</button>
+                            <button class="tab-button" onclick="showTab('jobs')">Job Finder</button>
+                        </a>
+                        
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <h1>News Page</h1>
     <div class="news-list" id="news-results"></div>
     

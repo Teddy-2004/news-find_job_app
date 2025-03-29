@@ -3,6 +3,7 @@ Techhire is a web application that allows users to search for tech jobs by filte
 
 Features
 Tech News: View the latest tech-related news from various sources, filtered by category (e.g., technology, business, etc.).
+App demonstration video: https://youtu.be/J74QKxuSTEQ
 
 Job Finder: Search for tech jobs by job title and location, with results fetched from Findwork.dev.
 

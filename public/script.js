@@ -54,17 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
 // ==================== Search and Display Jobs ====================
-async function searchJobs(query, location) {
-    // If no user input, default to software jobs in London
+async function searchJobs() {
+    // Get user input (job title and location)
+    const query = document.getElementById("query").value.trim();
+    const location = document.getElementById("location").value.trim();
+    
+    // Ensure both job title and location are provided
     if (!query || !location) {
-        query = "software";
-        location = "london";
+        document.getElementById("job-results").innerHTML = "<p>Please enter both job title and location.</p>";
+        return;
     }
-
-    // Clear previous results before fetching new ones
-    document.getElementById("job-results").innerHTML = "<p>Loading jobs...</p>";
 
     try {
         // Fetch job listings from backend API
@@ -72,12 +72,16 @@ async function searchJobs(query, location) {
         const data = await response.json();
 
         // If no jobs are found, display a user-friendly message
-        if (!data.results || data.results.length === 0) {
-            document.getElementById("job-results").innerHTML = `<p>No job listings found in ${location}. Try searching in a different city.</p>`;
+        if (data.message) {
+            document.getElementById("job-results").innerHTML = `<p>${data.message}</p>`;
             return;
         }
 
-        // Display new search results
+        // If jobs are found, display them dynamically
+        if (!data.results || data.results.length === 0) {
+            throw new Error(`No job listings found in ${location}. Try searching in a different city.`);
+        }
+
         document.getElementById("job-results").innerHTML = data.results.map(job => `
             <div class="job">
                 <h3>${job.role}</h3>
@@ -85,24 +89,11 @@ async function searchJobs(query, location) {
                 <a href="${job.url}" target="_blank">View Job</a>
             </div>
         `).join("");
-
     } catch (error) {
         console.error("❌ Job Search Error:", error.message);
-        document.getElementById("job-results").innerHTML = `<p>Error fetching jobs. Please try again.</p>`;
+        document.getElementById("job-results").innerHTML = `<p>${error.message}</p>`;
     }
 }
-
-// Automatically fetch software jobs in London on page load
-window.onload = () => searchJobs();
-
-// Attach manual search function to button click
-document.getElementById("search-button").addEventListener("click", () => {
-    const query = document.getElementById("query").value.trim();
-    const location = document.getElementById("location").value.trim();
-    searchJobs(query, location);
-});
-
-
 
 
 
